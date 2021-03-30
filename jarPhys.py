@@ -52,4 +52,6 @@ searchFile -- >
 
     return pageNumbers, docName, match text, paraScore, stcScore
 
+    also return a filePath to resultFile, which contains results sorted by match
+
 """
