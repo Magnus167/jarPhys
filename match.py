@@ -57,7 +57,7 @@ def is_ci_partial_set_token_stopword_lemma_match(a, b):
 
     # Calculate Jaccard similarity
     ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
-    return (ratio)
+    return (ratio*100)
 
 def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
     """Check if a and b are matches."""
@@ -70,7 +70,7 @@ def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
 
     # Calculate Jaccard similarity
     ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
-    return (ratio)
+    return (ratio*100)
 
 print(target_sentence)
 for sentence in sentences:
