@@ -1,7 +1,11 @@
 import nltk.corpus
+from nltk.corpus import wordnet
 import nltk.tokenize.punkt
 import nltk.stem.snowball
 import string
+
+# https://bommaritollc.com/2014/06/12/fuzzy-match-sentences-python/ ;
+
 
 target_sentence = "In the eighteenth century it was often convenient to regard man as a clockwork automaton."
 
@@ -25,6 +29,8 @@ stopwords = nltk.corpus.stopwords.words('english')
 stopwords.extend(string.punctuation)
 stopwords.append('')
 
+
+
 def get_wordnet_pos(pos_tag):
     if pos_tag[1].startswith('J'):
         return (pos_tag[0], wordnet.ADJ)
@@ -37,8 +43,22 @@ def get_wordnet_pos(pos_tag):
     else:
         return (pos_tag[0], wordnet.NOUN)
 
-tokenizer = nltk.tokenize.punkt.PunktWordTokenizer()
-lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
+tokenizer = nltk.tokenize.WordPunctTokenizer()
+lemmatizer = nltk.stem.WordNetLemmatizer()
+
+def is_ci_partial_set_token_stopword_lemma_match(a, b):
+    """Check if a and b are matches."""
+    pos_a = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(a)))
+    pos_b = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(b)))
+    lemmae_a = [lemmatizer.lemmatize(token.lower().strip(string.punctuation), pos) for token, pos in pos_a \
+                    if token.lower().strip(string.punctuation) not in stopwords]
+    lemmae_b = [lemmatizer.lemmatize(token.lower().strip(string.punctuation), pos) for token, pos in pos_b \
+                    if token.lower().strip(string.punctuation) not in stopwords]
+
+    # Calculate Jaccard similarity
+    ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
+    return (ratio)
+
 def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
     """Check if a and b are matches."""
     pos_a = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(a)))
@@ -50,7 +70,11 @@ def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
 
     # Calculate Jaccard similarity
     ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
-    return (ratio > 0.66)
+    return (ratio)
 
+print(target_sentence)
 for sentence in sentences:
-   print(is_ci_partial_noun_set_token_stopword_lemma_match(target_sentence, sentence), sentence)
+   print(is_ci_partial_noun_set_token_stopword_lemma_match(target_sentence, sentence), " : ",sentence)
+
+
+
