@@ -1,33 +1,23 @@
 import nltk.corpus
 from nltk.corpus import wordnet
 import nltk.tokenize.punkt
+from nltk.tokenize import sent_tokenize
 import nltk.stem.snowball
 import string
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
+#from testsent import target_sentence, sentences
 
 # https://bommaritollc.com/2014/06/12/fuzzy-match-sentences-python/ ;
-
-
-target_sentence = "In the eighteenth century it was often convenient to regard man as a clockwork automaton."
-
-sentences = ["In the eighteenth century it was often convenient to regard man as a clockwork automaton.",
-             "in the eighteenth century    it was often convenient to regard man as a clockwork automaton",
-             "In the eighteenth century, it was often convenient to regard man as a clockwork automaton.",
-             "In the eighteenth century, it was not accepted to regard man as a clockwork automaton.",
-             "In the eighteenth century, it was often convenient to regard man as clockwork automata.",
-             "In the eighteenth century, it was often convenient to regard man as clockwork automatons.",
-             "It was convenient to regard man as a clockwork automaton in the eighteenth century.",
-             "In the 1700s, it was common to regard man as a clockwork automaton.",
-             "In the 1700s, it was convenient to regard man as a clockwork automaton.",
-             "In the eighteenth century.",
-             "Man as a clockwork automaton.",
-             "In past centuries, man was often regarded as a clockwork automaton.",
-             "The eighteenth century was characterized by man as a clockwork automaton.",
-             "Very long ago in the eighteenth century, many scholars regarded man as merely a clockwork automaton.",]
 
 
 stopwords = nltk.corpus.stopwords.words('english')
 stopwords.extend(string.punctuation)
 stopwords.append('')
+
+
+def splitToSentences(strx):
+    return sent_tokenize(strx)
 
 
 
@@ -46,20 +36,16 @@ def get_wordnet_pos(pos_tag):
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
-def is_ci_partial_set_token_stopword_lemma_match(a, b):
-    """Check if a and b are matches."""
-    pos_a = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(a)))
-    pos_b = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(b)))
-    lemmae_a = [lemmatizer.lemmatize(token.lower().strip(string.punctuation), pos) for token, pos in pos_a \
-                    if token.lower().strip(string.punctuation) not in stopwords]
-    lemmae_b = [lemmatizer.lemmatize(token.lower().strip(string.punctuation), pos) for token, pos in pos_b \
-                    if token.lower().strip(string.punctuation) not in stopwords]
+def fuzzyExtract(query, strArray):
+    return process.extract(query, strArray)
+    #https://www.geeksforgeeks.org/fuzzywuzzy-python-library/
 
-    # Calculate Jaccard similarity
-    ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
-    return (ratio*100)
 
-def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
+def fuzzyMatcher(a, b):
+    #return fuzz.token_sort_ratio(a, b)
+    return fuzz.token_set_ratio(a, b)
+
+def matcher(a, b):
     """Check if a and b are matches."""
     pos_a = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(a)))
     pos_b = map(get_wordnet_pos, nltk.pos_tag(tokenizer.tokenize(b)))
@@ -70,11 +56,21 @@ def is_ci_partial_noun_set_token_stopword_lemma_match(a, b):
 
     # Calculate Jaccard similarity
     ratio = len(set(lemmae_a).intersection(lemmae_b)) / float(len(set(lemmae_a).union(lemmae_b)))
-    return (ratio*100)
+    return (ratio)
 
-print(target_sentence)
-for sentence in sentences:
-   print(is_ci_partial_noun_set_token_stopword_lemma_match(target_sentence, sentence), " : ",sentence)
+def searchInText(inText, qText):
+    txt = splitToSentences(inText)
+    chunks = [0]
+    res = []
+    print ("made it")    
+    for I in range(0, len(txt)):
+        m = matcher(qText, txt[i])
+        res.append([m, txt[I]])
+      
+    sRes = sorted(res, key=lambda x:x[0])
+    return sRes
+             
 
 
+        
 
