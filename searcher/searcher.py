@@ -9,6 +9,7 @@ import string
 from progress.bar import ChargingBar
 import re
 import collections
+import webbrowser
 files = {}
 
 
@@ -17,6 +18,21 @@ stopwords.extend(string.punctuation)
 stopwords.append('')
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
+
+def createHTML(listx, outName, qry):
+    f = open(outName+'.html','w')
+    message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : '+ qry+'</h2></p>'
+    for l in listx:
+        message = message + '<p><img src="input/'+str(l[0])+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])+'</span>'
+        
+    
+    message = message + '</body></html>'
+    f.write(message)
+    f.close()
+    
+
+
+
 def getDocName(strx):
     a = strx.split("-") 
     return a[0]
@@ -78,7 +94,7 @@ def fuzzyExtract(query, strDict, resCount):
         C+=1        
         if len(lemmae(elem[1]))>2:
             print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
-            freqs.append(getDocName(elem[2]))
+            freqs.append((elem[2]))
             #freqs.append(elem[2])
             I += 1            
     
@@ -93,6 +109,7 @@ def fuzzyExtract(query, strDict, resCount):
     print("Most 'interseting' documents : ")
     for d in sorted_list:
         print(d[0])
+    createHTML(sorted_list,'results', query)
 
 
 
@@ -142,6 +159,7 @@ def searcherMain():
 
         # syntax = searchX ( query, top n results )
         searchX(searchStr, int(resNum))
+        webbrowser.open_new_tab('results.html')
 
 
 searcherMain()
