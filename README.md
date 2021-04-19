@@ -1,10 +1,10 @@
 <a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 # jarPhys 
 
-jarPhys (jarvice :P) is a pdf scraping app to making passing the kcl physics course easier
+# Installing and using the searcher
 
+Download searcher.zip and follow the install instructions in ReadME.txt 
 
-
-Download all pdfs you want to search to one folder;
-Then copy jarPhys.py to the same folder.
-Run jarPhys.py and watch the majic. 
+To make life easier, I've included the courseware PDF files in a ZIP, and all the PDF files as a list of images. 
+These are in the coursewarePDFs.zip and pdfsAsImages.zip respectively.
+The file name from the search output matches the file names in pdfsAsImages.zip, allowing you to easily find file.
