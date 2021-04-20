@@ -74,7 +74,7 @@ def fuzzyExtract(query, strDict, resCount):
             for q in qry:
                 flag = flag and (q in qryStr)
             if flag:
-                t = 101
+                t = 1
             else:
                 t = 101-fuzz.token_set_ratio(query, strx)
 
