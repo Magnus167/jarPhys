@@ -26,7 +26,7 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
     If you have any more similar resources (not very long books, but rather presentations, cheat-sheets, or past question papers), I'd be more than happy to add them, or guide you on how you can add to the database on your own. Adding your own resources and custom-building your database is a bit of an icky process now. But lookout for updates!
     And please, do give me your feedback wherever possible! It's highly appreciated. 
 
-3. Also, buy me coffee please. Appreciated :) 
+3. Also, [buy me coffee please](https://www.buymeacoffee.com/pt420). Appreciated :) 
 
 
 ## Declaration and Permissions:
@@ -43,3 +43,4 @@ I assure you that the code in this repository is free of malintent, but am not l
 Have fun, hope you enjoy using the tool.  
 
 
+<a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
