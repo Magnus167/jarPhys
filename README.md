@@ -1,7 +1,7 @@
 <a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 # jarPhys 
 
-## What is jarPhys?
+# What is jarPhys?
 jarPhys is a PDF smart-search app, that's **designed to quickly run quick search-engine like searches on a set of PDFs**. 
 Far from complete, jarPhys is still a small but fully functional project. As of now, jarPhys allows real-time search of pre-cached PDF. 
 The real advantage jarPhys presents is avoiding searching through multiple (or very large) PDFs using CTRL-F (or however "find" works in your browser :P).
