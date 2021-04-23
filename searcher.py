@@ -115,7 +115,7 @@ def fuzzyExtract(query, strDict, resCount):
     
     sorted_list = sorted(freqs, key=lambda x:x[1])
     
-    print("Most 'interseting' documents : ")
+    print("Most 'interesting' documents : ")
     for d in sorted_list:
         print(d[0])
     createHTML(sorted_list,'results', query)
