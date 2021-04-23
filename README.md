@@ -27,3 +27,17 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
     And please, do give me your feedback wherever possible! It's highly appreciated. 
 
 3. Also, buy me coffee please. Appreciated :) 
+
+
+## Declaration and Permissions:
+All code contributed here is as is, with no guarantees of correction. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here. 
+### TLDR:
+You’re allow to:
+1.	Commercially use the code (licencing it as an MIT/Opensource License Only)
+2.	Modify 
+3.	Distribute
+4.	Privately Use
+5.	Contribute (the best option)
+I assure you that the code in this repository is free of malintent, but do not guarantee that it works correctly.  
+
+
