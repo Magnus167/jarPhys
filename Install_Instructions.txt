@@ -1,0 +1,16 @@
+Installation instructions
+
+
+1. Run installer.py
+(To make check if you've done this correctly, you should have a folder called "database" with 3 folders [extracted, slides, output] inside.)
+
+2. Run searcher.py!
+
+Et viola!
+Have fun!
+
+Now you can search the pre-built database (all lecture notes/slides/past qps provided on KEATS).
+If you have any more similar resources (not very long books, but rather presentations, cheat-sheets, or past question papers), I'd be more than happy to add them, or guide you on how you can add to the database on your own. 
+
+
+
