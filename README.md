@@ -38,6 +38,8 @@ You’re allow to:
 3.	Distribute
 4.	Privately Use
 5.	Contribute (the best option)
-I assure you that the code in this repository is free of malintent, but do not guarantee that it works correctly.  
+
+I assure you that the code in this repository is free of malintent, but am not liable if it does not work correctly.   
+Have fun, hope you enjoy using the tool.  
 
 
