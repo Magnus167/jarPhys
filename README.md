@@ -1,4 +1,3 @@
-<a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 # jarPhys 
 
 # What is jarPhys?
@@ -28,6 +27,12 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 3. Also, [buy me coffee please](https://www.buymeacoffee.com/pt420). Appreciated :) 
 
+# Supporting and Contributing
+* You're welcome to create branches, and issues wherever to fix/upgrade/add any relevant code/features/functionality. However, the main branch will remain solely under my control as, at the end of the day it is my repository.
+* And of course : 
+
+
+<a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
 
 ## Declaration and Permissions:
 All code contributed here is as is, with no guarantees of correction. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here. 
@@ -42,5 +47,3 @@ You’re allow to:
 I assure you that the code in this repository is free of malintent, but am not liable if it does not work correctly.   
 Have fun, hope you enjoy using the tool.  
 
-
-<a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
