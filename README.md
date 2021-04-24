@@ -29,8 +29,17 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 3. Also, [buy me coffee please](https://www.buymeacoffee.com/pt420). Appreciated :)
 
-# **Supporting and Contributing**
 
+# **Contributing resources to the public database**:
+1. Upload your PDF file(s) to [PDF2PNG (pdf2png.com)](https://pdf2png.com/). Sadly, there's a limit of 20 files per run, but you can open it in multiple websites :D
+2. Once all the files are done converting, click on 'Download All', which gives you a ZIP (.zip) file.
+3. Upload the ZIP file to the ['Resources_to_be_added' Google Drive folder (jarPhys/pdfs/Resources_to_be_added)](https://drive.google.com/drive/folders/1VlwK030HcLgWpZKgSjWAITGdqkWpZmyY?usp=sharing) in the relevant subject folder. Please do not delete/modify any exisiting files here. 
+4. The files will be proccessed and the latest version of the database will be distributed with the next release (very frequently (5-6 times a week) as of now).
+
+   If you have trouble converting your files to a ZIP file, simply upload your PDFs to the relevant folders, and they'll be processed later. (This will take some more time as compared to uploading the ZIP files.)  
+
+
+# **Supporting and Contributing** 
 - You're welcome to create branches, and issues wherever to fix/upgrade/add any relevant code/features/functionality. However, the main branch will remain solely under my control as, at the end of the day it is my repository.
 - And of course :
 
