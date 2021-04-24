@@ -85,14 +85,10 @@ def fuzzyExtract(query, strDict, resCount):
                 t = 1
             else:
                 t = 101-fuzz.token_set_ratio(query, strx)
-
-            res.append([t, strx, getFileName(key, False)])
+            res.append([t, strx, getFileName(key, True)])
         bar.next()
     bar.finish()  
             
-            #print(strx)
-        
-    
     sorted_list = sorted(res, key=lambda x:x[0])
     I = 0
     C = 0
@@ -124,10 +120,10 @@ def fuzzyExtract(query, strDict, resCount):
 def getFileName(strx, style=False):
     a = strx.split("\\")    
     if style:
-        return a[1]
+        return a[len(a)-1]
     else:
-        a = a[0].split("-")        
-        return (a[0]+'-'+a[1])
+        a = a[0].split("-")    
+        return ('-'.join(a[:len(a)-1]))
 
 def chooseDir(dataBaseDirectory):
     global selectedDir
