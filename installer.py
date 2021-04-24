@@ -5,11 +5,11 @@ import shutil
 
 gDriveLinks = {}
 gDriveLinks['slides'] =     '1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC'
-gDriveLinks['output'] =     '1Br2Xem8oPsiJVMNvICuUuoSom8R2uJJ1'
-gDriveLinks['extracted'] =  '1nF4ARSC9MZKwAXoMVLvs-vUV0DTeh8WR'
+gDriveLinks['output'] =     '1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF721'
+gDriveLinks['extracted'] =  '1RXCyroG514CBVJdTo2GaMOStgX8fSkOK'
 # slides.zip    https://drive.google.com/file/d/1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC/view?usp=sharing
-# output.zip    https://drive.google.com/file/d/1Br2Xem8oPsiJVMNvICuUuoSom8R2uJJ1/view?usp=sharing
-# extracted.zip https://drive.google.com/file/d/1nF4ARSC9MZKwAXoMVLvs-vUV0DTeh8WR/view?usp=sharing
+# output.zip    https://drive.google.com/file/d/1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72/view?usp=sharing
+# extracted.zip https://drive.google.com/file/d/1RXCyroG514CBVJdTo2GaMOStgX8fSkOK/view?usp=sharing
 # complete_repo https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing
 subprocess.check_call(' '.join([sys.executable, "-m pip install -r requirements.txt"]))
 subprocess.check_call(' '.join([sys.executable, "-m nltk.downloader all"]))
