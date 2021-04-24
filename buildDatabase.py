@@ -27,56 +27,58 @@ def getPNGFileNames(dirName):
     return f
 
 def combineScrapes():
-    with open("conbined.txt", "wb") as outfile:
+    with open("combined.txt", "wb") as outfile:
         for f in glob.glob('./extracted/*'):
             with open(f, "rb") as infile:
                 outfile.write(infile.read())
 
 
 def scrape():
-    fileNames = getPNGFileNames(outDirectory + selectedDir+'/')
+    fileNames = getPNGFileNames(outDirectory + selectedDir+ '/')
     bar =  ChargingBar('Reading Files :  ', max=len(fileNames))
     i=0
     for file in fileNames:
         i+=1
-        if not(os.path.exists(extractedDirectory+ file[:-4]+ '-' + str(i) +'.txt')):
-            txtract = pytesseract.image_to_string(Image.open(outDirectory+selectedDir+'/'+file), "eng")        
-            f = open(extractedDirectory+ selectedDir+'/'+file[:-4]+ '-' + str(i) +'.txt', "x")
+        fPath = extractedDirectory+selectedDir+ '/'+getFileName(file[:-4]) +'.txt'
+        if os.path.exists(fPath):
+            append_write = 'a' # append if already exists
+        else:
+            append_write = 'w'        
+        txtract = pytesseract.image_to_string(Image.open(outDirectory+selectedDir+ '/'+file), "eng")  
+        t = txtract 
+        if len(t.strip())>0: 
+            f = open(fPath, append_write)
             f.write(txtract)
             f.close()
         bar.next()
     bar.finish()
 
-def chooseDir(dataBaseDirectory):
-    global selectedDir
-    folders=[]
-    directory_contents = os.listdir(dataBaseDirectory)
-    for item in directory_contents:
-        if os.path.isdir(dataBaseDirectory  + item):
-            folders.append(str(item)) 
-    
-    print("Choose one of the following folders please : ")
-    for f in folders:
-        print(' - ', f)    
+  
 
-    while True:
-        dirName = input("Folder name : ")
-        if (dirName in folders):
-            print("Folder selected successfully...")
-            selectedDir = dirName
-            #if 
-            return str(dataBaseDirectory + dirName+'/*')
-            break;
-        else:
-            print("Please select from one of the above listed folders")   
+def getDocName(strx):
+    a = strx.split("-") 
+    return a[0]
 
+
+def getFileName(strx, style=False):
+    a = strx.split("\\")    
+    if style:
+        return a[1]
+    else:
+        a = a[0].split("-")    
+        return ('-'.join(a[:len(a)-2]))
 
 def saveFilenames(fNames):   
-
-    with open(slidesDir + selectedDir+"/extracted.csv", 'w', newline='') as file:
+    with open(outDirectory + selectedDir+"/extracted.csv", 'w', newline='') as file:
         mywriter = csv.writer(file, delimiter=',')
         mywriter.writerows(fNames)
-    
+
+def createdDBDirs(dirName):
+    if not(os.path.isdir(extractedDirectory+dirName+'/')):
+        os.makedirs(extractedDirectory+dirName)
+    if not(os.path.isdir(outDirectory+dirName+'/')):
+        os.makedirs(outDirectory+dirName)     
+
 def chooseDir(dataBaseDirectory):
     global selectedDir
     folders=[]
@@ -93,8 +95,8 @@ def chooseDir(dataBaseDirectory):
         dirName = input("Folder name : ")
         if (dirName in folders):
             print("Folder selected successfully...")
-            selectedDir = dirName
-            #if 
+            selectedDir = dirName 
+            createdDBDirs(dirName)
             return str(dataBaseDirectory + dirName+'/*')
             break;
         else:
@@ -129,13 +131,10 @@ def saveImagesDict(images, fName):
 
 def createGroups(img, fIDStr,iterCount = 1): 
     # iterCount was chosen by trial-and-error
-    
     '''
-    
     this function draws a bounding box around the identified "chunk" of text.
     each pass from the loop 'enhances' the feature as there is now a box drawn around it. 
     finally, when the loop ends, the same chunks are selected from of the original image. 
-    
     '''
     
     imOut = img.copy()
@@ -163,7 +162,6 @@ def createGroups(img, fIDStr,iterCount = 1):
     
     #croppedImgs
     saveImagesDict(croppedImgs, fIDStr)
-
     return imOut
 
 def loadPDF():
@@ -177,8 +175,8 @@ def loadPDF():
 def getSnips():
     fileNames = getPNGFileNames(slidesDir + selectedDir)
     fCounter = 0
-    if (os.path.exists(slidesDir + selectedDir+"/extracted.csv")):
-        with open(slidesDir + selectedDir+"/extracted.csv", 'r', newline='') as file:
+    if (os.path.exists(slidesDir + outDirectory+"/extracted.csv")):
+        with open(slidesDir + outDirectory+"/extracted.csv", 'r', newline='') as file:
             myreader = csv.reader(file, delimiter=',')
             for rows in myreader:
                 try:
@@ -187,42 +185,51 @@ def getSnips():
                 except ValueError:
                     pass  # do nothing!
 
-    #print(fileNames)
-
-
-
-
-
-    bar =  ChargingBar('Processing :  ', max=len(fileNames))
-    
+    bar =  ChargingBar('Processing :  ', max=len(fileNames))    
     for fileName in fileNames:
-       # print(slidesDir +selectedDir+'/'+fileName)
+        #print(slidesDir +selectedDir+fileName)
         fCounter += 1
         img = cv2.imread( slidesDir +selectedDir+'/'+fileName, 0)  # 0 converts to grayscale   
         im2 = createGroups(img, fileName[:-4])  
         bar.next()         
     bar.finish()
-      
-
-               
-def extractorMain():
-    chooseDir(slidesDir)
+    
+def extractorMain(dirName):
+    chooseDir(dirName)
     getSnips()
-    saveFilenames(getPNGFileNames(slidesDir+selectedDir))
-
-
-
+    saveFilenames(getPNGFileNames(dirName+selectedDir))
 
 #scrape()
 def textractorMain():
     #chooseDir(outDirectory)
     scrape()
 
-
+def runSuperMode():
+    rs=False
+    print('Run super mode? (completely automated)')
+    print("only do this if you're sure of the database structure.")
+    answer = input("Y/N : ")
+    rs = (answer.upper() =="Y" )
+    if rs:
+        folders=[]
+        directory_contents = os.listdir(slidesDir)
+        for item in directory_contents:
+            if os.path.isdir(slidesDir + item):
+                folders.append(str(item)) 
+        
+        global selectedDir
+        for f in folders:
+            selectedDir = f
+            print("Current Dir : ", f)
+            createdDBDirs(f)
+            getSnips()
+            saveFilenames(getPNGFileNames(slidesDir+selectedDir))
+            textractorMain()
+            
 def buildMain():
-    extractorMain()
+    runSuperMode()
+    extractorMain(slidesDir)
     textractorMain()
-
 
 buildMain()
 

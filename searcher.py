@@ -29,7 +29,7 @@ def createHTML(listx,outName, qry, sDir='-1',imgDir='slides/'):
     f = open(outName+'.html','w')
     message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : '+ qry+'</h2></p>'
     for l in listx:
-        message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])+'</span>'
+        message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
         
     
     message = message + '</body></html>'
@@ -121,7 +121,7 @@ def fuzzyExtract(query, strDict, resCount):
     createHTML(sorted_list,'results', query)
 
 
-def getFileName(strx, style):
+def getFileName(strx, style=False):
     a = strx.split("\\")    
     if style:
         return a[1]
@@ -184,7 +184,7 @@ def searcherMain():
         #resNum = input("display n results : ")
         while True:
             try:
-                resNum = input("display n results : ")    
+                resNum = int(input("display n results : "))    
                 break;  
             except ValueError:
                 print("Provide an integer value...")
@@ -193,8 +193,6 @@ def searcherMain():
         # syntax = searchX ( query, top n results )
         webbrowser.open_new_tab('results.html')
 
-
 searcherMain()
 
-# feed search results into an HTML file, so that it can display results and images correctly.
 

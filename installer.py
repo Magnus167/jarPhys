@@ -2,32 +2,62 @@ import subprocess
 import sys
 import os
 import shutil
+
+gDriveLinks = {}
+gDriveLinks['slides'] =     '1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC'
+gDriveLinks['output'] =     '1Br2Xem8oPsiJVMNvICuUuoSom8R2uJJ1'
+gDriveLinks['extracted'] =  '1nF4ARSC9MZKwAXoMVLvs-vUV0DTeh8WR'
+# slides.zip    https://drive.google.com/file/d/1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC/view?usp=sharing
+# output.zip    https://drive.google.com/file/d/1Br2Xem8oPsiJVMNvICuUuoSom8R2uJJ1/view?usp=sharing
+# extracted.zip https://drive.google.com/file/d/1nF4ARSC9MZKwAXoMVLvs-vUV0DTeh8WR/view?usp=sharing
+# complete_repo https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing
 subprocess.check_call(' '.join([sys.executable, "-m pip install -r requirements.txt"]))
 subprocess.check_call(' '.join([sys.executable, "-m nltk.downloader all"]))
+from progress.bar import ChargingBar
+from zipfile38 import ZipFile
+
+devFiles = ["Install_Instructions.txt", "database.txt", "LICENSE.txt", "README.txt", "installer.py", "requirements.txt", "buildDatabase.py"]
+
+print('..............')
+print("Do you want to enable developer mode?")
+print("(Unless you're going to be writing code for this project, say no)")
+answer = input("Y/N : ")
+devMode = (answer.upper() == 'Y')
+if devMode:
+    print("Downloading developer files")
+else:    
+    print("Skiping developer files")
 
 from google_drive_downloader import GoogleDriveDownloader as gdd
-# #https://drive.google.com/file/d/13Ac06UG612NMIP771zqwspPkCf-Hj8Vk/view?usp=sharing
-print ("Downloading database.zip fro Google Drive. Approx. Size = 700MB")
-gdd.download_file_from_google_drive(file_id='13Ac06UG612NMIP771zqwspPkCf-Hj8Vk' , dest_path='./database.zip', unzip=False, showsize=True)
+def downloadFile(id, dest, folderX='./database/'):
+    gdd.download_file_from_google_drive(file_id=id , dest_path=folderX+dest, unzip=False, showsize=True)
+    print("Unzipping... [typically 5-10ish minutes]")
+    with ZipFile(folderX+dest, 'r') as zipObj:
+        zipObj.extractall(folderX)    
+    os.remove(folderX+dest)
 
-import zipfile
-print("Unzipping File... Please wait (this may take 2-3 minutes)")
-with zipfile.ZipFile('./database.zip', 'r') as zip_ref:
-    zip_ref.extractall('.')    
-os.remove("database.zip")
-print('..............')
-print("Do you want to keep developer files?")
-print("(Unless you're going to be writing code for this project, say no)")
-while True:
-        answer = input("Y/N : ")
-        if answer.upper() == 'Y':
-            print("Retaining developer files")
-            break;
-        else:
-            print("Deleting developer files")
-            os.remove("requirements.txt")
-            os.remove("buildDatabase.py")
-            shutil.rmtree("./database/output")
-            break;
+
+os.mkdir("./database/")
+uzipFiles = []
+if devMode:
+    downloadFile(gDriveLinks['extracted'], 'extracted.zip')
+    downloadFile(gDriveLinks['slides'], 'slides.zip')
+    downloadFile(gDriveLinks['output'], 'output.zip')
+else:
+    downloadFile(gDriveLinks['extracted'], 'extracted.zip')
+    downloadFile(gDriveLinks['slides'], 'slides.zip')
+    if os.path.isfile('README.md'):
+        os.rename('README.md','README.txt')
+    if os.path.isfile('LICENSE'):
+        os.rename('LICENSE','LICENSE.txt')        
+    os.rename('searcher.py','jarPhys-search.py')
+    os.mkdir("./jarPhys-info")
+    for f in devFiles:
+        os.rename(f, "./jarPhys-info" + '/'+f)
+    # start for standalone installer.
 
 print("Install successful!")
+print("You can now delete installer.py :D")
+print("")
+print("")
+input("press enter to close the installer. __ >")
