@@ -1,6 +1,5 @@
 nltk==3.5
 progress==1.5
-python-Levenshtein
 fuzzywuzzy==0.18.0
 requests
 googledrivedownloader 
