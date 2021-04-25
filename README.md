@@ -18,7 +18,11 @@ At some point, I'll make a complete browser run downloadable app, but for now th
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and the **Phy**sics (the sad hell in which we are united).
 
 # **Installing and using the jarPhys-search**
-
+## Requirements 
+If you have Python installed and have used it a few times before, or did [5CCP211C - Intro. to Numerical Modelling](https://keats.kcl.ac.uk/enrol/index.php?id=77693), and haven't deleted the installation, you can skip reading this part.  
+1. Python 3.8 (or later) installed. You can download it from [python.org](https://www.python.org/downloads/)
+2. At least 1GB of storage on disk availabe.
+3. An active internet connection **during installation**.
 ## The Stand-Alone Installer
 
 The simplest way to install the application quickly is to run stand stand-alone installer.
