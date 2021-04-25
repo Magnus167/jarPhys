@@ -4,8 +4,8 @@ import os
 import shutil
 import time
 
-subprocess.check_call(' '.join(["python3 -m pip install requests"]))
-subprocess.check_call(' '.join("python3 -m pip install zipfile38"]))
+subprocess.check_call("python3 -m pip install requests")
+subprocess.check_call("python3 -m pip install zipfile38")
 
 import requests 
 from zipfile38 import ZipFile
@@ -32,5 +32,3 @@ print('...')
 time.sleep(3)
 from jarPhys.installer import *
 installerX()
-os.chdir(selfDir)
-os.remove('jarPhys-simple-installer.py')
