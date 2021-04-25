@@ -27,12 +27,12 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 The simplest way to install the application quickly is to run the stand-alone installer.
 
-1. Download the installer : [**jarPhys-simple-installer.py**](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py).
+1. Download the installer : [**jarPhys-simple-installer.py**](https://github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py).
 
 
    You can do this by clicking on the embedded link above (or [click here](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py)), or downloading the latest release from Releases section.
 
-2. Run jarPhys-simple-installer.py; Follow the installation instructions.
+2. Run jarPhys-simple-installer.py; This should launch a command line installer right away. Follow the installation instructions. (if it doesn't, try running the installer from command line)
 3. Et voila! Enjoy :D
 
 ## Download the source
