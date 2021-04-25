@@ -4,8 +4,8 @@ import os
 import shutil
 import time
 
-subprocess.check_call("python3 -m pip install requests")
-subprocess.check_call("python3 -m pip install zipfile38")
+subprocess.check_call("python3 -m pip install requests", shell=True)
+subprocess.check_call("python3 -m pip install zipfile38", shell=True)
 
 import requests 
 from zipfile38 import ZipFile
