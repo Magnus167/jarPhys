@@ -64,4 +64,4 @@ def installerX():
     input("press enter to close the installer. __ >")
 
 
-installerX
+installerX()
