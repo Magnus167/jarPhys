@@ -21,10 +21,26 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 ## The Stand-Alone Installer
 
-1. Download the standalone installer : <a id="raw-url" href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download='p.py'>click</a>
-<form method="get" a href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download="proposed_file_name.py">
-   <button type="submit">Download!</button>
-</form>
+1. Download the standalone installer : 
+<!--
+<a href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download="w3logo"> click</a>  -->
+<button type="button" onclick="clickAction()">Try it</button>
+
+<script>
+function clickAction() {
+   var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py"));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+    
+}
+</script>
 
 
 
