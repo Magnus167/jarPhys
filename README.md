@@ -27,7 +27,7 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 The simplest way to install the application quickly is to run the stand-alone installer.
 
-1. Download the installer : [**jarPhys-simple-installer.py**](https://github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py).
+1. Download the installer : [**jarPhys-simple-installer.py**](https://github.com/Magnus167/jarPhys/releases/download/r1/jarPhys-simple-installer.py).
 
 
    You can do this by clicking on the embedded link above (or [click here](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py)), or downloading the latest release from Releases section.
