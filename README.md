@@ -27,7 +27,7 @@ If you have Python installed and have used it a few times before, or did [5CCP21
 
 The simplest way to install the application quickly is to run stand stand-alone installer.
 
-1. Download the installer : [**jarPhys-simple-installer.py**](https://http://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py).
+1. Download the installer : [**jarPhys-simple-installer.py**](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py).
  
  
    You can do this by clicking on the embedded link above (or click here), or downloading the latest release from Releases section.
