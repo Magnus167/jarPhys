@@ -19,6 +19,16 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 # **Installing and using the jarPhys-search**
 
+## The Stand-Alone Installer
+
+1. Download the standalone installer : <a id="raw-url" href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download='p.py'>click</a>
+<form method="get" a href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download="proposed_file_name.py">
+   <button type="submit">Download!</button>
+</form>
+
+
+
+
 1. Download the entire project as a ZIP File from the green download button ([link here as well](https://codeload.github.com/Magnus167/jarPhys/zip/refs/heads/main)).
    Extract the project to the desired and follow the install instructions in Install_Instruction.txt. The entire project is also mirrored on Google Drive ([link here](https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing)).
 
@@ -43,7 +53,8 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 - You're welcome to create branches, and issues wherever to fix/upgrade/add any relevant code/features/functionality. However, the main branch will remain solely under my control as, at the end of the day it is my repository.
 - And of course :
 
-  <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+  <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>  
+  
 
 # **Declaration and Permissions**
 
