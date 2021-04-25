@@ -21,29 +21,21 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 
 ## The Stand-Alone Installer
 
-1. Download the standalone installer : 
-<!--
-<a href="https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py" download="w3logo"> click</a>  -->
-<button type="button" onclick="clickAction()">Try it</button>
+The simplest way to install the application quickly is to run stand stand-alone installer.
 
-<script>
-function clickAction() {
-   var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py"));
-  element.setAttribute('download', filename);
+1. The save the installer : Save the file [jarPhys-simple-installer.py](https://raw.githubusercontent.com/Magnus167/jarPhys/master/jarPhys-simple-installer.py).
+ You can do this by clicking on the embedded link above and saving the file (**press `CTRL+S`**). 
 
-  element.style.display = 'none';
-  document.body.appendChild(element);
+2. Run jarPhys-simple-installer.py; Follow the installation instructions.
+3. Et voila! Enjoy :D 
 
-  element.click();
-
-  document.body.removeChild(element);
-    
-}
-</script>
+   <a href="https://www.buymeacoffee.com/pt420" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 
+## Download the source 
 
+Downloading the source allows you to access all the documentation and code. You can rebuild the code for yourself, and try to run the complete application on your own. If you are able to download the source, and can install Tesseract OCR & OpenCV, and replace the path in the buildDatabase file, you can create your own database. 
+`installer.py` is useful for downlaoding and extracting the complete database, and set it up correctly for developers... so use it :P.
 
 1. Download the entire project as a ZIP File from the green download button ([link here as well](https://codeload.github.com/Magnus167/jarPhys/zip/refs/heads/main)).
    Extract the project to the desired and follow the install instructions in Install_Instruction.txt. The entire project is also mirrored on Google Drive ([link here](https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing)).
