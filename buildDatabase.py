@@ -10,7 +10,9 @@ import numpy as np
 import csv
 import glob
 from nltk.tokenize import sent_tokenize as splitToSentences
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+if not(sys.platform in ['linux', 'posix']):
+	pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+# change to your tesseract installation path
 baseDir = './database/'
 outDirectory = baseDir + 'output/'
 slidesDir = baseDir + 'slides/'
