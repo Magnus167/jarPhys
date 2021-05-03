@@ -31,4 +31,4 @@ os.chdir('./jarPhys')
 print('...')
 time.sleep(3)
 from jarPhys.installer import *
-installerX()
+#installerX()
