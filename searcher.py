@@ -42,7 +42,7 @@ def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
         message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Match-Based Results</p>'
         message = message + '<a href="results2.html">Click here to go to Frequency-Based results</a>'
         for l in listx:
-            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
+            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l)[:-4]+'</span>'
     
     message = message + '</body></html>'
     f.write(message)
