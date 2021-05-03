@@ -22,8 +22,6 @@ stopwords.append('')
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
-
-
 def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
     
     global selectedDir
@@ -48,11 +46,9 @@ def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
     f.write(message)
     f.close()
     
-
 def getDocName(strx):
     a = strx.split("-") 
     return a[0]
-
 
 def get_wordnet_pos(pos_tag):
     tags = ['J', 'V', 'R', 'N']
@@ -71,7 +67,6 @@ def lemmae(a):
 def compareTokens(a ,b):
     ratio = len(set(lemmae(a)).intersection(lemmae(b))) / float(len(set(lemmae(a)).union(lemmae(b))))
     return int(ratio*100)
-
 
 def fuzzyExtract(query, strDict, resCount):
     res = []
@@ -104,14 +99,30 @@ def fuzzyExtract(query, strDict, resCount):
         resCount= len(sorted_list)
     while I<resCount:       
         elem = sorted_list[C]
-        C+=1        
+        C+=1  
+              
         if len(lemmae(elem[1]))>2:
             print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
             freqs.append(elem[2])
-            I += 1            
+            I += 1 
     
-    
-    createHTML(freqs, query, 2)
+    createHTML(freqs, query, 2)        
+    I = 0         
+    C = 0
+    freqs = []  
+    while I<resCount:
+        elem = sorted_list[C]
+        C +=1
+        if C>len(sorted_list):
+            break
+        if len(lemmae(elem[1]))>2:
+            #print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
+            if not(elem[2] in freqs): 
+                I += 1 
+            freqs.append(elem[2])
+            
+        
+        
     frqx = collections.Counter(freqs)
     freqs = []
     mx = max(frqx.values())
