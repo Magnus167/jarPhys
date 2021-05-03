@@ -12,8 +12,8 @@ def installerX():
     # extracted.zip https://drive.google.com/file/d/1HibfoC1LkHEUg8a5cU-gQNZ3C3rHbajK/view?usp=sharing
     # complete_repo https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing
 
-    subprocess.check_call("python3 -m pip install -r requirements.txt", shell=True)
-    subprocess.check_call("python3 -m nltk.downloader all", shell=True)
+    subprocess.check_call("python -m pip install -r requirements.txt", shell=True)
+    subprocess.check_call("python -m nltk.downloader all", shell=True)
     from progress.bar import ChargingBar
     from zipfile38 import ZipFile
 
