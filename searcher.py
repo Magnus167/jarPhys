@@ -22,29 +22,36 @@ stopwords.append('')
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
-def createHTML(listx,outName, qry, sDir='-1',imgDir='slides/'):
+
+
+def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
+    
     global selectedDir
     if sDir=='-1':
         sDir=selectedDir
+    outName = 'results'
+    if option==1:
+        outName = outName+ '2'
     f = open(outName+'.html','w')
-    message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : '+ qry+'</h2></p>'
-    for l in listx:
-        message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
-        
+    if option==1:
+        message = '<html><head><title>jarPhys Output 2</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Frequency-Based Results</p>'
+        message = message + '<a href="results.html">Click here to go to Match-Based results</a>'
+        for l in listx:
+            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
+    else:
+        message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Match-Based Results</p>'
+        message = message + '<a href="results2.html">Click here to go to Frequency-Based results</a>'
+        for l in listx:
+            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
     
     message = message + '</body></html>'
     f.write(message)
     f.close()
     
 
-
-
 def getDocName(strx):
     a = strx.split("-") 
     return a[0]
-
-
-
 
 
 def get_wordnet_pos(pos_tag):
@@ -103,6 +110,8 @@ def fuzzyExtract(query, strDict, resCount):
             freqs.append(elem[2])
             I += 1            
     
+    
+    createHTML(freqs, query, 2)
     frqx = collections.Counter(freqs)
     freqs = []
     mx = max(frqx.values())
@@ -114,8 +123,7 @@ def fuzzyExtract(query, strDict, resCount):
     print("Most 'interesting' documents : ")
     for d in sorted_list:
         print(d[0])
-    createHTML(sorted_list,'results', query)
-
+    createHTML(sorted_list, query, 1)
 
 def getFileName(strx, style=False):
     a = strx.split("\\")    
@@ -147,10 +155,6 @@ def chooseDir(dataBaseDirectory):
         else:
             print("Please select from one of the above listed folders")   
         
-
-
-
-
 def loadFiles():
     baseFolder =  chooseDir(extractedDirectory)
     global files
@@ -163,14 +167,12 @@ def loadFiles():
             bar.next()
     bar.finish()
 
-
 def searchX(qry, resCount):
     #my_file = open("./extracted/combinedOutput.txt", "r")
     global files
 
     fuzzyExtract(qry, files, resCount)
     print ('......................................')
-
 
 def searcherMain():
 

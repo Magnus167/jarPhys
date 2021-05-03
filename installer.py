@@ -5,7 +5,7 @@ import shutil
 def installerX():
     gDriveLinks = {}
     gDriveLinks['slides'] =     '1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC'
-    gDriveLinks['output'] =     '1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF721'
+    gDriveLinks['output'] =     '1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72'
     gDriveLinks['extracted'] =  '1RXCyroG514CBVJdTo2GaMOStgX8fSkOK'
     # slides.zip    https://drive.google.com/file/d/1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC/view?usp=sharing
     # output.zip    https://drive.google.com/file/d/1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72/view?usp=sharing
