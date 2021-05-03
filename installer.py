@@ -4,12 +4,12 @@ import os
 import shutil
 def installerX():
     gDriveLinks = {}
-    gDriveLinks['slides'] =     '1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC'
-    gDriveLinks['output'] =     '1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72'
-    gDriveLinks['extracted'] =  '1RXCyroG514CBVJdTo2GaMOStgX8fSkOK'
-    # slides.zip    https://drive.google.com/file/d/1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC/view?usp=sharing
-    # output.zip    https://drive.google.com/file/d/1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72/view?usp=sharing
-    # extracted.zip https://drive.google.com/file/d/1RXCyroG514CBVJdTo2GaMOStgX8fSkOK/view?usp=sharing
+    gDriveLinks['slides'] =     '12OVU0vfi2Z6ZYY3zSOHDzb15kPH_84K8'
+    gDriveLinks['output'] =     '15JNnLW6rKrFMa7EK7fc0oBnMBt1Ihpsy'
+    gDriveLinks['extracted'] =  '1HibfoC1LkHEUg8a5cU-gQNZ3C3rHbajK'
+    # slides.zip    https://drive.google.com/file/d/12OVU0vfi2Z6ZYY3zSOHDzb15kPH_84K8/view?usp=sharing
+    # output.zip    https://drive.google.com/file/d/15JNnLW6rKrFMa7EK7fc0oBnMBt1Ihpsy/view?usp=sharing
+    # extracted.zip https://drive.google.com/file/d/1HibfoC1LkHEUg8a5cU-gQNZ3C3rHbajK/view?usp=sharing
     # complete_repo https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing
 
     subprocess.check_call("python3 -m pip install -r requirements.txt", shell=True)
