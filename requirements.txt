@@ -4,3 +4,4 @@ fuzzywuzzy==0.18.0
 requests
 googledrivedownloader 
 zipfile38
+python-Levenshtein
