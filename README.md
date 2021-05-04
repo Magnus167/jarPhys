@@ -16,7 +16,7 @@ For the time being, the search interface is hosted on your device's command prom
 A great advantage is being able to search for questions without worrying about not finding "exact" matches.**
 
 At some point, I'll make a complete browser run downloadable app, but for now this is it.
-The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and the **Phy**sics (*the sad hell in which we are united*).
+The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
 
 # **Installing and using the jarPhys-search**
 ## Requirements
