@@ -2,22 +2,29 @@ import subprocess
 import sys
 import os
 import shutil
+import urllib
 def installerX():
-    gDriveLinks = {}
-    gDriveLinks['slides'] =     '1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC'
-    gDriveLinks['output'] =     '1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF721'
-    gDriveLinks['extracted'] =  '1RXCyroG514CBVJdTo2GaMOStgX8fSkOK'
-    # slides.zip    https://drive.google.com/file/d/1LpSFZ502WHYD0bm7ALeClbIb4mSlfBNC/view?usp=sharing
-    # output.zip    https://drive.google.com/file/d/1SbYh2A68PgXHgfmxdj7_0Z8tjpm2aF72/view?usp=sharing
-    # extracted.zip https://drive.google.com/file/d/1RXCyroG514CBVJdTo2GaMOStgX8fSkOK/view?usp=sharing
-    # complete_repo https://drive.google.com/drive/folders/18VgVaxoDj531Imugoc_VvvTUzCvTQdZ9?usp=sharing
+    def updateDatabase(devX=False):  
+        url = "https://raw.githubusercontent.com/Magnus167/jarPhys/main/databaseLinks.txt"
+        file = urllib.request.urlopen(url)
+        fileList = []
+        for line in file:
+            decoded_line = line.decode("utf-8")
+            fileList.append(decoded_line.split(', '))
+        for fs in fileList:
+                fID = fs[1].split('/')[-1].strip()   
+                if not(devX):         
+                    if not(fs[0]=='output.zip'):
+                        downloadFile(fID, fs[0])
+                else:
+                    downloadFile(fID, fs[0])
 
-    subprocess.check_call(' '.join([sys.executable, "-m pip install -r requirements.txt"]))
-    subprocess.check_call(' '.join([sys.executable, "-m nltk.downloader all"]))
+    subprocess.check_call("python -m pip install -r requirements.txt", shell=True)
+    subprocess.check_call("python -m nltk.downloader all", shell=True)
     from progress.bar import ChargingBar
     from zipfile38 import ZipFile
 
-    devFiles = ["Install_Instructions.txt", "database.txt", "LICENSE.txt", "README.txt", "installer.py", "requirements.txt", "buildDatabase.py", "results.html", "jarPhys-simple-installer.py"]
+    devFiles = ["Install_Instructions.txt", "database.txt", "LICENSE.txt", "README.txt", "installer.py", "requirements.txt", "buildDatabase.py", "results.html", "jarPhys-simple-installer.py","databaseLinks.txt"]
 
     print('..............')
     print("Do you want to enable developer mode?")
@@ -39,14 +46,8 @@ def installerX():
 
 
     os.mkdir("./database/")
-    uzipFiles = []
-    if devMode:
-        downloadFile(gDriveLinks['extracted'], 'extracted.zip')
-        downloadFile(gDriveLinks['slides'], 'slides.zip')
-        downloadFile(gDriveLinks['output'], 'output.zip')
-    else:
-        downloadFile(gDriveLinks['extracted'], 'extracted.zip')
-        downloadFile(gDriveLinks['slides'], 'slides.zip')
+    updateDatabase(devMode)
+    if not(devMode):
         if os.path.isfile('README.md'):
             os.rename('README.md','README.txt')
         if os.path.isfile('LICENSE'):
@@ -55,7 +56,6 @@ def installerX():
         os.mkdir("./jarPhys-info")
         for f in devFiles:
             os.rename(f, "./jarPhys-info" + '/'+f)
-        # start for standalone installer.
 
     print("Install successful!")
     #print("You can now delete installer.py :D")

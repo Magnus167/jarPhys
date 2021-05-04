@@ -10,42 +10,69 @@ from progress.bar import ChargingBar
 import re
 import collections
 import webbrowser
+import urllib
 import os
+from google_drive_downloader import GoogleDriveDownloader as gdd
+from zipfile38 import ZipFile
 files = {}
 baseDir = './database/'
 extractedDirectory = baseDir + 'extracted/'
 selectedDir = ''
-
 stopwords = nltk.corpus.stopwords.words('english')
 stopwords.extend(string.punctuation)
 stopwords.append('')
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
-def createHTML(listx,outName, qry, sDir='-1',imgDir='slides/'):
+def downloadFile(id, dest, folderX='./database/'):
+    gdd.download_file_from_google_drive(file_id=id , dest_path=folderX+dest, unzip=False, showsize=True)
+    print("Unzipping... [typically 5-10ish minutes]")
+    with ZipFile(folderX+dest, 'r') as zipObj:
+        zipObj.extractall(folderX)    
+    os.remove(folderX+dest)
+
+def updateDatabase(devX=False):  
+    url = "https://raw.githubusercontent.com/Magnus167/jarPhys/main/databaseLinks.txt"
+    file = urllib.request.urlopen(url)
+    fileList = []
+    for line in file:
+        decoded_line = line.decode("utf-8")
+        fileList.append(decoded_line.split(', '))
+    for fs in fileList:
+            fID = fs[1].split('/')[-1].strip()   
+            if not(devX):         
+                if not(fs[0]=='output.zip'):
+                    downloadFile(fID, fs[0])
+            else:
+                downloadFile(fID, fs[0])
+    
+def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
+    
     global selectedDir
     if sDir=='-1':
         sDir=selectedDir
+    outName = 'results'
+    if option==1:
+        outName = outName+ '2'
     f = open(outName+'.html','w')
-    message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : '+ qry+'</h2></p>'
-    for l in listx:
-        message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
-        
+    if option==1:
+        message = '<html><head><title>jarPhys Output 2</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Frequency-Based Results</p>'
+        message = message + '<a href="results.html">Click here to go to Match-Based results</a>'
+        for l in listx:
+            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
+    else:
+        message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Match-Based Results</p>'
+        message = message + '<a href="results2.html">Click here to go to Frequency-Based results</a>'
+        for l in listx:
+            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l)[:-4]+'</span>'
     
     message = message + '</body></html>'
     f.write(message)
     f.close()
     
-
-
-
 def getDocName(strx):
     a = strx.split("-") 
     return a[0]
-
-
-
-
 
 def get_wordnet_pos(pos_tag):
     tags = ['J', 'V', 'R', 'N']
@@ -64,7 +91,6 @@ def lemmae(a):
 def compareTokens(a ,b):
     ratio = len(set(lemmae(a)).intersection(lemmae(b))) / float(len(set(lemmae(a)).union(lemmae(b))))
     return int(ratio*100)
-
 
 def fuzzyExtract(query, strDict, resCount):
     res = []
@@ -97,12 +123,30 @@ def fuzzyExtract(query, strDict, resCount):
         resCount= len(sorted_list)
     while I<resCount:       
         elem = sorted_list[C]
-        C+=1        
+        C+=1  
+              
         if len(lemmae(elem[1]))>2:
             print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
             freqs.append(elem[2])
-            I += 1            
+            I += 1 
     
+    createHTML(freqs, query, 2)        
+    I = 0         
+    C = 0
+    freqs = []  
+    while I<resCount:
+        elem = sorted_list[C]
+        C +=1
+        if C>len(sorted_list):
+            break
+        if len(lemmae(elem[1]))>2:
+            #print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
+            if not(elem[2] in freqs): 
+                I += 1 
+            freqs.append(elem[2])
+            
+        
+        
     frqx = collections.Counter(freqs)
     freqs = []
     mx = max(frqx.values())
@@ -114,8 +158,7 @@ def fuzzyExtract(query, strDict, resCount):
     print("Most 'interesting' documents : ")
     for d in sorted_list:
         print(d[0])
-    createHTML(sorted_list,'results', query)
-
+    createHTML(sorted_list, query, 1)
 
 def getFileName(strx, style=False):
     a = strx.split("\\")    
@@ -147,10 +190,6 @@ def chooseDir(dataBaseDirectory):
         else:
             print("Please select from one of the above listed folders")   
         
-
-
-
-
 def loadFiles():
     baseFolder =  chooseDir(extractedDirectory)
     global files
@@ -163,7 +202,6 @@ def loadFiles():
             bar.next()
     bar.finish()
 
-
 def searchX(qry, resCount):
     #my_file = open("./extracted/combinedOutput.txt", "r")
     global files
@@ -171,8 +209,18 @@ def searchX(qry, resCount):
     fuzzyExtract(qry, files, resCount)
     print ('......................................')
 
-
 def searcherMain():
+    print('Loading jarPhys....')
+    print('repo : magnus167/jarphys')
+    print("Do you want to check the database for updates?")
+    upinX = input("Y / N ? ")
+    if upinX.upper()=="Y":
+        print("Standard update / developer update ? ")
+        upinX = input("S / D ? ")        
+        
+        updateDatabase((upinX.upper() == 'D'))
+
+
 
     loadFiles()
     while True:        

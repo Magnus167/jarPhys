@@ -10,7 +10,10 @@ import numpy as np
 import csv
 import glob
 from nltk.tokenize import sent_tokenize as splitToSentences
-pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+import sys
+if not(sys.platform in ['linux', 'posix']):
+	pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+# change to your tesseract installation path
 baseDir = './database/'
 outDirectory = baseDir + 'output/'
 slidesDir = baseDir + 'slides/'
@@ -55,9 +58,9 @@ def scrape():
 
   
 
-def getDocName(strx):
-    a = strx.split("-") 
-    return a[0]
+# def getDocName(strx):
+#     a = strx.split("-") 
+#     return a[0]
 
 
 def getFileName(strx, style=False):
@@ -66,7 +69,7 @@ def getFileName(strx, style=False):
         return a[1]
     else:
         a = a[0].split("-")    
-        return ('-'.join(a[:len(a)-2]))
+        return ('-'.join(a[:len(a)-1]))
 
 def saveFilenames(fNames):   
     with open(outDirectory + selectedDir+"/extracted.csv", 'w', newline='') as file:

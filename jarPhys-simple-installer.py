@@ -4,8 +4,8 @@ import os
 import shutil
 import time
 
-subprocess.check_call(' '.join([sys.executable, "-m pip install requests"]))
-subprocess.check_call(' '.join([sys.executable, "-m pip install zipfile38"]))
+subprocess.check_call("python -m pip install requests", shell=True)
+subprocess.check_call("python -m pip install zipfile38", shell=True)
 
 import requests 
 from zipfile38 import ZipFile
@@ -31,7 +31,4 @@ os.chdir('./jarPhys')
 print('...')
 time.sleep(3)
 from jarPhys.installer import *
-installerX()
-shutil.rmtree('__pycache__')
-os.chdir(selfDir)
-os.remove('jarPhys-simple-installer.py')
+#installerX()
