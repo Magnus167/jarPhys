@@ -4,3 +4,9 @@ fuzzywuzzy==0.18.0
 requests
 googledrivedownloader 
 zipfile38
+opencv-python
+pytesseract
+Pillow
+scikit-image
+imutils
+pdf2image
