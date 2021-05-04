@@ -10,18 +10,42 @@ from progress.bar import ChargingBar
 import re
 import collections
 import webbrowser
+import urllib
 import os
+from google_drive_downloader import GoogleDriveDownloader as gdd
+from zipfile38 import ZipFile
 files = {}
 baseDir = './database/'
 extractedDirectory = baseDir + 'extracted/'
 selectedDir = ''
-
 stopwords = nltk.corpus.stopwords.words('english')
 stopwords.extend(string.punctuation)
 stopwords.append('')
 tokenizer = nltk.tokenize.WordPunctTokenizer()
 lemmatizer = nltk.stem.WordNetLemmatizer()
 
+def downloadFile(id, dest, folderX='./database/'):
+    gdd.download_file_from_google_drive(file_id=id , dest_path=folderX+dest, unzip=False, showsize=True)
+    print("Unzipping... [typically 5-10ish minutes]")
+    with ZipFile(folderX+dest, 'r') as zipObj:
+        zipObj.extractall(folderX)    
+    os.remove(folderX+dest)
+
+def updateDatabase(devX=False):  
+    url = "https://raw.githubusercontent.com/Magnus167/jarPhys/main/databaseLinks.txt"
+    file = urllib.request.urlopen(url)
+    fileList = []
+    for line in file:
+        decoded_line = line.decode("utf-8")
+        fileList.append(decoded_line.split(', '))
+    for fs in fileList:
+            fID = fs[1].split('/')[-1].strip()   
+            if not(devX):         
+                if not(fs[0]=='output.zip'):
+                    downloadFile(fID, fs[0])
+            else:
+                downloadFile(fID, fs[0])
+    
 def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
     
     global selectedDir
@@ -186,6 +210,17 @@ def searchX(qry, resCount):
     print ('......................................')
 
 def searcherMain():
+    print('Loading jarPhys....')
+    print('repo : magnus167/jarphys')
+    print("Do you want to check the database for updates?")
+    upinX = input("Y / N ? ")
+    if upinX.upper()=="Y":
+        print("Standard update / developer update ? ")
+        upinX = input("S / D ? ")        
+        
+        updateDatabase((upinX.upper() == 'D'))
+
+
 
     loadFiles()
     while True:        
