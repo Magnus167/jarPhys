@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os
 import shutil
+import urllib
 def installerX():
     def updateDatabase(devX=False):  
         url = "https://raw.githubusercontent.com/Magnus167/jarPhys/main/databaseLinks.txt"
