@@ -24,7 +24,7 @@ def installerX():
     from progress.bar import ChargingBar
     from zipfile38 import ZipFile
 
-    devFiles = ["Install_Instructions.txt", "database.txt", "LICENSE.txt", "README.txt", "installer.py", "requirements.txt", "buildDatabase.py", "results.html", "jarPhys-simple-installer.py","databaseLinks.txt"]
+    devFiles = ["Install_Instructions.txt", "database.txt", "LICENSE.txt", "README.txt", "installer.py", "requirements.txt", "buildDatabase.py", "results.html", "jarPhys-simple-installer.py","databaseLinks.txt", "results2.html",".gitignore"]
 
     print('..............')
     print("Do you want to enable developer mode?")

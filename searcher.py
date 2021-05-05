@@ -92,11 +92,13 @@ def compareTokens(a ,b):
     ratio = len(set(lemmae(a)).intersection(lemmae(b))) / float(len(set(lemmae(a)).union(lemmae(b))))
     return int(ratio*100)
 
-def fuzzyExtract(query, strDict, resCount):
+def fuzzyExtract(query, strDict, resCount, rig=False):
     res = []
     keys = strDict.keys()
     res2 = []
-    
+    engine=fuzz.token_set_ratio
+    if rig:
+        engine=compareTokens
     bar =  ChargingBar('Searching Files :  ', max=len(keys))
     for key in keys:
         for strx in strDict[key]: 
@@ -108,13 +110,12 @@ def fuzzyExtract(query, strDict, resCount):
             for q in qry:
                 flag = flag and (q in qryStr)
             if flag:
-                t = 1
+                t = 0
             else:
-                t = 101-fuzz.token_set_ratio(query, strx)
+                t = 101-engine(query, strx)
             res.append([t, strx, getFileName(key, True)])
         bar.next()
     bar.finish()  
-            
     sorted_list = sorted(res, key=lambda x:x[0])
     I = 0
     C = 0
@@ -123,12 +124,14 @@ def fuzzyExtract(query, strDict, resCount):
         resCount= len(sorted_list)
     while I<resCount:       
         elem = sorted_list[C]
-        C+=1  
-              
+        C+=1
+        if C>len(sorted_list):
+            break
         if len(lemmae(elem[1]))>2:
             print(I+1 , ")", chr(9),elem[2], " : ", repr(elem[1]).strip())
-            freqs.append(elem[2])
-            I += 1 
+            if not(elem[2] in freqs):
+                freqs.append(elem[2])
+                I += 1 
     
     createHTML(freqs, query, 2)        
     I = 0         
@@ -202,11 +205,11 @@ def loadFiles():
             bar.next()
     bar.finish()
 
-def searchX(qry, resCount):
+def searchX(qry, resCount, useNLTK=False):
     #my_file = open("./extracted/combinedOutput.txt", "r")
     global files
 
-    fuzzyExtract(qry, files, resCount)
+    fuzzyExtract(qry, files, resCount, useNLTK)
     print ('......................................')
 
 def searcherMain():
@@ -220,11 +223,10 @@ def searcherMain():
         
         updateDatabase((upinX.upper() == 'D'))
 
-
-
     loadFiles()
     while True:        
-        searchStr = input("enter search query : ")        
+        searchStr = input("enter search query : ")     
+        
         #resNum = input("display n results : ")
         while True:
             try:
