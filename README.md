@@ -14,7 +14,7 @@ For the time being, the search interface is hosted on your device's command prom
 
 **For me personally, a tool like this is helpful during exams/quizzes/tests or when trying to lookup material from a vague memory.
 A great advantage is being able to search for questions without worrying about not finding "exact" matches.**
-If you're worried about being penalized for using jarPhys (or similar programs), don't be! For open book exams
+If you're worried about being penalized for using jarPhys (or similar programs), don't be! You're allowed to! Check [this section for further details](https://github.com/Magnus167/jarPhys/blob/main/README.md#am-i-allowed-to-use-jarphys-for-open-book-exams).
 
 At some point, I'll make a complete browser run downloadable app, but for now this is it.
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
@@ -62,7 +62,7 @@ Downloading the source allows you to access all the documentation and code. You 
 
 4. The installer otherwise does other libraries required to run jarPhys. But you may want to check requirements.txt
 
-5. If you're running windows, and **did not** install Tesseract-OCR in `'C:/Program Files/Tesseract-OCR/tesseract.exe`, change [Line 14 in buildDatabase.py](https://github.com/Magnus167/jarPhys/blob/7ec38704636981e4b06f9101c236cfe63631914c/buildDatabase.py#L14) in your code to point to where you installed Tesseract-OCR. 
+5. If you're running windows, and **did not** install Tesseract-OCR in `C:/Program Files/Tesseract-OCR/tesseract.exe`, change [Line 14 in buildDatabase.py](https://github.com/Magnus167/jarPhys/blob/7ec38704636981e4b06f9101c236cfe63631914c/buildDatabase.py#L14) in your code to point to where you installed Tesseract-OCR. 
   
 6. Et viola! Enjoy! 
 
