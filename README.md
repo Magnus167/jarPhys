@@ -14,6 +14,7 @@ For the time being, the search interface is hosted on your device's command prom
 
 **For me personally, a tool like this is helpful during exams/quizzes/tests or when trying to lookup material from a vague memory.
 A great advantage is being able to search for questions without worrying about not finding "exact" matches.**
+If you're worried about being penalized for using jarPhys (or similar programs), don't be! For open book exams
 
 At some point, I'll make a complete browser run downloadable app, but for now this is it.
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
@@ -85,9 +86,13 @@ Please support the project by [buying me coffee](https://www.buymeacoffee.com/pt
   <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>  
 
 
+# Am I **allowed** to use jarPhys for open book exams?
+If you study at **King's College London**, you're not doing anything wrong. In fact, KCL encourages you to have a pre-comiled database of notes/documents you may need during your exams. As stated in the [Student Guide to Online Assessments (pg2, section "Preparing your material for an open book exam")](https://www.kcl.ac.uk/teachlearntech/assets/students-online-exams-guide.pdf), students will not be doing something wrong by using jarPhys. **After all, it's simply a fancy way to search through your notes**. To be clear, using jarPhys is not "illegal" or even quasi-legal, **it's perfectly and completely "legal"**. 
+
+
 # **Declaration and Permissions**
 
-All code contributed here is as is, with no guarantees of correction. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here.
+All code contributed here is as is, with no guarantees of correctness or it even working on your computers. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here.
 
 All learning resources used in the provided database/Google Drive are learning resources provided by lecturers of KCL and other online resources mostly accessed via their teaching platform KEATs.
 
