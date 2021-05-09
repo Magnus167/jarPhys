@@ -102,7 +102,7 @@ All learning resources used in the provided database/Google Drive are learning r
 
 ## **TLDR**:
 
-You’re allow to:
+You’re allowed to:
 
 1. Commercially use the code
 2. Modify
