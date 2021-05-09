@@ -25,6 +25,8 @@ The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, 
 1. Python 3.8 (or later) installed. You can download it from [python.org](https://www.python.org/downloads/)
 2. At least 1GB of storage on disk availabe.
 3. An active internet connection **during installation**.
+
+
 ##  The Stand-Alone Installer
 
 The simplest way to install the application quickly is to run the stand-alone installer.
