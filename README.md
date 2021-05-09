@@ -14,6 +14,7 @@ For the time being, the search interface is hosted on your device's command prom
 
 **For me personally, a tool like this is helpful during exams/quizzes/tests or when trying to lookup material from a vague memory.
 A great advantage is being able to search for questions without worrying about not finding "exact" matches.**
+If you're worried about being penalized for using jarPhys (or similar programs), don't be! You're allowed to! Check [this section for further details](https://github.com/Magnus167/jarPhys/blob/main/README.md#am-i-allowed-to-use-jarphys-for-open-book-exams).
 
 At some point, I'll make a complete browser run downloadable app, but for now this is it.
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
@@ -33,7 +34,11 @@ The simplest way to install the application quickly is to run the stand-alone in
 
    You can do this by clicking on the embedded link above (or [click here](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py)), or downloading the latest release from Releases section.
 
-2. Run jarPhys-simple-installer.py; Do this by running `python jarPhys-simple-installer.py` on your terminal in the same directory. (Don't worry, the file's are installed within a nested folder :) ). 
+2. Run jarPhys-simple-installer.py; Do this by running 
+
+   `python jarPhys-simple-installer.py` 
+      
+   on your terminal in the same directory. (Don't worry, the file's are installed within a nested folder :) ). 
 This should launch a command line installer right away. Follow the installation instructions.
 3. Et voila! Enjoy :D
 4. **Optional** (*recommended*) : [Buy me coffee!](https://www.buymeacoffee.com/pt420)
@@ -57,7 +62,7 @@ Downloading the source allows you to access all the documentation and code. You 
 
 4. The installer otherwise does other libraries required to run jarPhys. But you may want to check requirements.txt
 
-5. If you're running windows, and **did not** install Tesseract-OCR in `'C:/Program Files/Tesseract-OCR/tesseract.exe`, change [Line 14 in buildDatabase.py](https://github.com/Magnus167/jarPhys/blob/7ec38704636981e4b06f9101c236cfe63631914c/buildDatabase.py#L14) in your code to point to where you installed Tesseract-OCR. 
+5. If you're running windows, and **did not** install Tesseract-OCR in `C:/Program Files/Tesseract-OCR/tesseract.exe`, change [Line 14 in buildDatabase.py](https://github.com/Magnus167/jarPhys/blob/7ec38704636981e4b06f9101c236cfe63631914c/buildDatabase.py#L14) in your code to point to where you installed Tesseract-OCR. 
   
 6. Et viola! Enjoy! 
 
@@ -81,9 +86,13 @@ Please support the project by [buying me coffee](https://www.buymeacoffee.com/pt
   <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>  
 
 
+# Am I **allowed** to use jarPhys for open book exams?
+If you study at **King's College London**, you're not doing anything wrong. In fact, KCL encourages you to have a pre-comiled database of notes/documents you may need during your exams. As stated in the [Student Guide to Online Assessments (pg2, section "Preparing your material for an open book exam")](https://www.kcl.ac.uk/teachlearntech/assets/students-online-exams-guide.pdf), students will not be doing something wrong by using jarPhys. **After all, it's simply a fancy way to search through your notes**. To be clear, using jarPhys is not "illegal" or even quasi-legal, **it's perfectly and completely "legal"**. 
+
+
 # **Declaration and Permissions**
 
-All code contributed here is as is, with no guarantees of correction. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here.
+All code contributed here is as is, with no guarantees of correctness or it even working on your computers. I guarantee my good intentions in sharing this as a tool, but not a finished product. Anyone interested is free to make valid contributions (suggestions) to the code, or add to the files database (as long as they are helpful contributions). You may clone and use the code from this repository however you please – although I would appreciate learning about what you found useful here.
 
 All learning resources used in the provided database/Google Drive are learning resources provided by lecturers of KCL and other online resources mostly accessed via their teaching platform KEATs.
 
