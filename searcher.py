@@ -47,7 +47,7 @@ def updateDatabase(devX=False):
                 downloadFile(fID, fs[0])
     
 def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
-    
+   
     global selectedDir
     if sDir=='-1':
         sDir=selectedDir
@@ -58,13 +58,23 @@ def createHTML(listx, qry,option=1, sDir='-1',imgDir='slides/'):
     if option==1:
         message = '<html><head><title>jarPhys Output 2</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Frequency-Based Results</p>'
         message = message + '<a href="results.html">Click here to go to Match-Based results</a>'
-        for l in listx:
-            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
+        if (os.name=="posix"):
+            for l in listx:
+                nStr = str(l[0])[:-4].replace('extracted','slides')
+                message = message + '<p><img src="'+nStr+'.png" width=350><span class="caption" style="color:white"> : '+nStr+'</span>'
+        else:
+            for l in listx:
+                message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l[0])[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l[0])[:-4]+'</span>'
     else:
         message = '<html><head><title>jarPhys Output</title></head><body style="background-color:black;" text="#ffffff"><p><h2> Query : "'+ qry+'"</h2></p><p> Match-Based Results</p>'
         message = message + '<a href="results2.html">Click here to go to Frequency-Based results</a>'
-        for l in listx:
-            message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l)[:-4]+'</span>'
+        if (os.name=="posix"):
+            for l in listx:
+                nStr = str(l)[:-4].replace('extracted','slides')
+                message = message + '<p><img src="'+nStr+'.png" width=350><span class="caption" style="color:white"> : '+nStr+'</span>'
+        else:
+            for l in listx:
+                message = message + '<p><img src="'+baseDir+imgDir+sDir+'/'+str(l)[:-4]+'.png" width=350><span class="caption" style="color:white"> : '+str(l)[:-4]+'</span>'
     
     message = message + '</body></html>'
     f.write(message)
@@ -122,6 +132,7 @@ def fuzzyExtract(query, strDict, resCount, rig=False):
     freqs = [] 
     if resCount>len(sorted_list):
         resCount= len(sorted_list)
+    print("Results ranked by Matches")
     while I<resCount:       
         elem = sorted_list[C]
         C+=1
@@ -132,11 +143,11 @@ def fuzzyExtract(query, strDict, resCount, rig=False):
             if not(elem[2] in freqs):
                 freqs.append(elem[2])
                 I += 1 
-    
-    createHTML(freqs, query, 2)        
+    createHTML(freqs, query)    
     I = 0         
     C = 0
     freqs = []  
+    print("Results ranked by match-frequency")    
     while I<resCount:
         elem = sorted_list[C]
         C +=1
@@ -148,7 +159,7 @@ def fuzzyExtract(query, strDict, resCount, rig=False):
                 I += 1 
             freqs.append(elem[2])
             
-        
+    
         
     frqx = collections.Counter(freqs)
     freqs = []
@@ -161,7 +172,7 @@ def fuzzyExtract(query, strDict, resCount, rig=False):
     print("Most 'interesting' documents : ")
     for d in sorted_list:
         print(d[0])
-    createHTML(sorted_list, query, 1)
+    createHTML(sorted_list, query)
 
 def getFileName(strx, style=False):
     a = strx.split("\\")    
@@ -198,7 +209,7 @@ def loadFiles():
     global files
     bar =  ChargingBar('Loading Files :  ', max=len(glob.glob(baseFolder)))
     for f in glob.glob(baseFolder):
-        with open(f, "r") as infile:
+        with open(f, "r", errors="ignore") as infile:
             strs = infile.readlines()
             snts = splitToSentences('.'.join(strs))
             files[getFileName(f, True)] = snts
