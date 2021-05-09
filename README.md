@@ -19,7 +19,7 @@ If you're worried about being penalized for using jarPhys (or similar programs),
 At some point, I'll make a complete browser run downloadable app, but for now this is it.
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
 
-# **Installing and using the jarPhys-search**
+# **Installing and using jarPhys-search**
 ## Requirements
 **If you have Python installed and have used it a few times before, or did [5CCP211C - Intro. to Numerical Modelling](https://keats.kcl.ac.uk/enrol/index.php?id=77693), and haven't deleted the installation, you can skip reading this part.*
 1. Python 3.8 (or later) installed. You can download it from [python.org](https://www.python.org/downloads/)
