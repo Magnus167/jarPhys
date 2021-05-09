@@ -45,6 +45,8 @@ This should launch a command line installer right away. Follow the installation 
 3. Et voila! Enjoy :D
 4. **Optional** (*recommended*) : [Buy me coffee!](https://www.buymeacoffee.com/pt420)
 
+
+
 ##  Download the source (and scanning your own documents)
 
 Downloading the source allows you to access all the documentation and code. You can rebuild the code for yourself, and try to run the complete application on your own. 
