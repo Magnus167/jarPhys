@@ -18,6 +18,10 @@ If you're worried about being penalized for using jarPhys (or similar programs),
 
 At some point, I'll make a complete browser-run downloadable app, but for now this is it.
 The name itself is a coinage from the combination Tony Stark's **Jar**vice bot, and **Phy**sics (*the sad hell in which we are united*).
+Quick links : 
+ - [**Installing jarPhys-search**](https://github.com/Magnus167/jarPhys#installing-and-using-jarphys-search)
+ - [**Using jarPhys-search**](https://github.com/Magnus167/jarPhys#running-the-application-hands-on-guide)
+ - [**Most asked question : Am I "allowed" to use jarPhys in an exam?**](https://github.com/Magnus167/jarPhys#am-i-allowed-to-use-jarphys-for-open-book-exams)
 
 # **Installing and using jarPhys-search**
 ## Requirements
@@ -131,7 +135,14 @@ Please support the project by [buying me coffee](https://www.buymeacoffee.com/pt
 
 
 # Am I **allowed** to use jarPhys for open book exams?
-If you study at **King's College London**, you're not doing anything wrong. In fact, KCL encourages you to have a pre-compiled database of notes/documents you may need during your exams. As stated in the [Student Guide to Online Assessments (pg2, section "Preparing your material for an open book exam")](https://www.kcl.ac.uk/teachlearntech/assets/students-online-exams-guide.pdf), students will not be doing something wrong by using jarPhys. **After all, it's simply a fancy way to search through your notes**. To be clear, using jarPhys is not "illegal" or even quasi-legal, **it's perfectly and completely "legal"**. 
+If you study at **King's College London**, you're not doing anything wrong. In fact, KCL encourages you to have a pre-compiled database of notes/documents you may need during your exams. As stated in the [Student Guide to Online Assessments (pg2, section "Preparing your material for an open book exam")](https://www.kcl.ac.uk/teachlearntech/assets/students-online-exams-guide.pdf), **students will not be doing anything wrong by using jarPhys**. **After all, it's simply a fancy way to search through your notes**. To be clear, using jarPhys is not "illegal" or even quasi-legal, **it's perfectly and completely "legal"**. 
+
+
+**Screenshot from Student Guide to Online Assessments : KCL.AC.UK**
+![image](https://user-images.githubusercontent.com/23239946/117709763-37f0c180-b1c9-11eb-922a-e954c8f58e64.png)
+
+link : https://www.kcl.ac.uk/teachlearntech/assets/students-online-exams-guide.pdf
+
 
 
 # **Declaration and Permissions**
