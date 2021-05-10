@@ -143,7 +143,7 @@ def fuzzyExtract(query, strDict, resCount, rig=False):
             if not(elem[2] in freqs):
                 freqs.append(elem[2])
                 I += 1 
-    createHTML(freqs, query)    
+    createHTML(freqs, query, 2)    
     I = 0         
     C = 0
     freqs = []  
