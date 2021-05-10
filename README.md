@@ -1,3 +1,5 @@
+<body style="background-color:black;" text="#ffffff">
+
 # **jarPhys**
 
 # What is jarPhys?
@@ -114,3 +116,5 @@ You’re allowed to:
 I assure you that the code in this repository is free of malintent, but I can not guarantee that it works correctly.  
 
 **Have fun, hope you enjoy using the tool.** 
+
+</body>
