@@ -1,1 +1,7 @@
-theme: jekyll-theme-midnight
+theme: jekyll-theme-cayman
+title: jarPhys
+--- 
+title: How To Run the application
+layout: jekyll-theme-cayman
+filename: how-to-run.md
+--- 
