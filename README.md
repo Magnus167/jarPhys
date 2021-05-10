@@ -1,4 +1,4 @@
-<body style="background-color:black;" text="#ffffff">
+
 
 # **jarPhys**
 
@@ -117,4 +117,3 @@ I assure you that the code in this repository is free of malintent, but I can no
 
 **Have fun, hope you enjoy using the tool.** 
 
-</body>
