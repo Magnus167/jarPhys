@@ -113,11 +113,6 @@ Please support the project by [buying me coffee](https://www.buymeacoffee.com/pt
    ![image](https://user-images.githubusercontent.com/23239946/117706729-9025c480-b1c5-11eb-9669-d21cfe4cf045.png)
 
 
-
-
-
-
-
 # **Contributing resources to the public database**:
 1. Upload your PDF file(s) to [PDF2PNG (pdf2png.com)](https://pdf2png.com/). Sadly, there's a limit of 20 files per run, but you can open it in multiple tabs :D
 2. Once all the files are done converting, click on 'Download All', which gives you a ZIP (`.zip`) file.
@@ -125,6 +120,13 @@ Please support the project by [buying me coffee](https://www.buymeacoffee.com/pt
 4. The files will be processed and the latest version of the database will be distributed with the next release (*~5-6 times a week as of now*).
 
    If you have trouble converting your files to a ZIP file, simply upload your PDFs to the relevant folders, and they'll be processed later. (*This will take some more time as compared to uploading the ZIP files.*)  
+   
+   
+# Reporting and getting help with issues
+You can use either of the following methods to report and get help with an issue. In both cases, we will get back to you as soon as possible:
+- Any issues can be reported using the [**Issue/Feedback Form**](https://docs.google.com/forms/d/e/1FAIpQLSevOXeW1HRqBSGvk_3cVTdAd4moyb6PY86kbKT4Yd8snj707A/).
+- If you use Github, the issue can be submitted directly to the [**repository's issues tab**](https://github.com/Magnus167/jarPhys/issues)  
+
 
 
 # **Supporting and Contributing to the repository**
