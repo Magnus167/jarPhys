@@ -1,0 +1,23 @@
+body {
+   color: white;
+background-color: black;
+
+}
+h1 {
+  background-color: black;
+  color: #98e2a8;
+}
+
+h2 {
+  background-color: black;
+  color: #98e2a8;
+}
+code {
+  background-color: #202020;
+  color: #98e2a8;
+  font-family: 'Courier New', monospace;
+}
+
+a {
+  color: #1e81b0
+}
