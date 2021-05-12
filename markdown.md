@@ -1,6 +1,6 @@
 # **jarPhys**
 
-<div style="text-align: right">(https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/pt420)</div>
+<div style="text-align: right"> <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=pt420&amp;button_colour=BD5FFF&amp;font_colour=ffffff&amp;font_family=Poppins&amp;outline_colour=000000&amp;coffee_colour=FFDD00"></a> </div>
 
 # What is jarPhys?
 
@@ -34,7 +34,7 @@ The simplest way to install the application quickly is to run the stand-alone in
 
 1.  Download the installer: [**jarPhys-simple-installer.py**](https://github.com/Magnus167/jarPhys/releases/download/r1/jarPhys-simple-installer.py).
 
-You can do this by clicking on the embedded link above (or [click here](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py)), or downloading the latest release from Releases section.
+ You can do this by clicking on the embedded link above (or [click here](https://www.github.com/Magnus167/jarPhys/releases/download/jarPhys-simple-installer/jarPhys-simple-installer.py)), or downloading the latest release from Releases section.
 
 2.  Run jarPhys-simple-installer.py; Do this by running
 
