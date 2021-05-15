@@ -1,5 +1,7 @@
 <h1 id="-jarphys-"><strong>jarPhys</strong></h1>
-<div style="text-align: right"> <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=pt420&amp;button_colour=BD5FFF&amp;font_colour=ffffff&amp;font_family=Poppins&amp;outline_colour=000000&amp;coffee_colour=FFDD00"></a> </div>
+<div style="text-align: right"> <a href="https://www.buymeacoffee.com/pt420"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=pt420&button_colour=BD5FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+
+</div>
 
 <h1 id="what-is-jarphys-">What is jarPhys?</h1>
 <p>jarPhys is a PDF smart-search app, that&#39;s <strong>designed to rapidly run quick token matching based searches on a set of images</strong>. jarPhys uses OCR to tag images, and search through the text in them. As of now jarPhys works amazingly with plain text, so-so with handwriting, and extremely poorly with mathematical text.</p>
