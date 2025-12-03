@@ -71,7 +71,9 @@ def run_ocr(
     cropped_images_dict: Dict[str, np.ndarray], show_progress: bool
 ) -> List[str]:
     iterator = (
-        tqdm(cropped_images_dict.keys()) if show_progress else cropped_images_dict.keys()
+        tqdm(cropped_images_dict.keys())
+        if show_progress
+        else cropped_images_dict.keys()
     )
     txtractArr = Parallel(n_jobs=-1)(
         delayed(pytesseract.image_to_string)(cropped_images_dict[file], "eng")
